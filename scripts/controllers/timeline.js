@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('soonseen3App')
-	.controller('TimelineCtrl', function($scope, $rootScope, $http, $routeParams, timelineService, tlCommentService) {
+	.controller('TimelineCtrl', function ($scope, $rootScope, $http, $routeParams, timelineService, tlCommentService, api_url) {
 		//发布timeline
 		$scope.publish = function(timeline) {
 
@@ -25,7 +25,7 @@ angular.module('soonseen3App')
 			        xhr.addEventListener("load", uploadComplete, false);
 			        xhr.addEventListener("error", uploadFailed, false);
 			        xhr.addEventListener("abort", uploadCanceled, false);
-					xhr.open("POST", "http://127.0.0.1:3000/photos");
+					xhr.open("POST", api_url+"/photos");
 					$scope.progressVisible = true;
 					xhr.send(fd);
 

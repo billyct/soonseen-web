@@ -160,7 +160,7 @@ angular.module('soonseen3App')
   			 *return userService.search({keyword:keyword, token:$rootScope.user.token, group_id: groupId});
   			 *这里是一个关于$resource延迟的问题的问题待解决，因为这样写影响维护,可能吧，主要这里涉及到ui-bootrap的typehead
   			 */
-  			return $http.get('http://127.0.0.1:3000/search', {params:{
+  			return $http.get(api_url+'/search', {params:{
   				token : $rootScope.user.token,
   				keyword: keyword,
   				group_id:groupId

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('soonseen3App', ['ngCookies', 'ngResource', 'ui.select2', 'ui.utils', 'ui.bootstrap'])
-  .value('api_url', 'http://127.0.0.1:3000:3000')
+  .value('api_url', 'http://api.soonseen.in')
   .config(function ($routeProvider, $locationProvider) {
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('soonseen3App')
-  .controller('ProfileCtrl', function ($scope, $rootScope, $cookieStore, $location, userService) {
+  .controller('ProfileCtrl', function ($scope, $rootScope, $cookieStore, $location, userService, api_url) {
 
   	$scope.save = function(profile) {
 
@@ -27,7 +27,7 @@ angular.module('soonseen3App')
 	        xhr.addEventListener("load", uploadComplete, false);
 	        xhr.addEventListener("error", uploadFailed, false);
 	        xhr.addEventListener("abort", uploadCanceled, false);
-			xhr.open("POST", "http://127.0.0.1:3000/photos");
+			xhr.open("POST", api_url+"/photos");
 			xhr.send(fd);
 
   		} else {
