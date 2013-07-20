@@ -1,0 +1,20 @@
+<div class="col col-lg-12">
+    <section class="toolbar clearfix m-t-large m-b">
+      
+      <a href="/groups" class="btn btn-circle"><i class="icon-plus"></i>添加或者加入圈子</a>
+
+      <a href="#" class="btn btn-white btn-circle" ng-click="showGroups = !showGroups"> <i class="icon-group"></i>
+        我的圈子 <b class="badge bg-white">{{groupsJ.length}}</b>
+      </a>
+
+      <a href="/groups/{{g._id}}" class="btn btn-white btn-circle animate{{$index}} bounceInLeft" ng-repeat="g in groupsJ" ng-show="showGroups">
+      	<i class="icon-group"></i>
+      	{{g.name}}
+      </a>
+
+    </section>
+
+</div>
+<div class="col col-lg-8">
+  <div class="line line-dashed"></div>
+</div>

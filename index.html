@@ -1,0 +1,111 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>宿舍</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="/styles/app.v2.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <!-- endbuild -->
+  </head>
+  <body ng-app="soonseen3App" class="navbar-fixed" ng-controller="BaseCtrl">
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="components/es5-shim/es5-shim.js"></script>
+      <script src="components/json3/lib/json3.min.js"></script>
+      <script src="components/respond/respond.min.js"></script>
+      <script src="components/html5shiv/src/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+
+
+    
+    <ng-include src="'/views/layout/header.html'"></ng-include>
+
+    <ng-view>
+    </ng-view>
+
+    <ng-include src="'/views/layout/footer.html'"></ng-include>
+
+
+    <script src="/components/jquery/jquery.min.js"></script>
+    <script src="/components/jquery/jquery-migrate.min.js"></script>
+
+    <script src="/components/angular/angular.js"></script>
+    <script src="/components/angular-resource/angular-resource.js"></script>
+    <script src="/components/angular-cookies/angular-cookies.js"></script>
+    <script src="/components/angular-sanitize/angular-sanitize.js"></script>
+
+    <!-- component -->
+
+    <script src="/components/bootstrap/docs/assets/js/bootstrap.min.js"></script>
+
+    <script src="/components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="/components/select2/select2.js"></script>
+    <script src="/components/select2/select2_locale_zh-CN.js"></script>
+    <script src="/components/angular-ui-select2/src/select2.js"></script>
+
+    <script src="/components/ui-utils/angular-ui-utils.min.js"></script>
+
+    
+    <script src="/components/bootstrap-file-input/bootstrap.file-input.js"></script>
+    
+    <script src="/components/underscore/underscore-min.js"></script>
+    
+    <script src="/components/moment/min/moment.min.js"></script>
+    <script src="/components/moment/min/lang/zh-cn.js"></script>
+
+
+    <!-- build:js scripts/scripts.js -->
+
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/main.js"></script>
+    <script src="/scripts/filters/fromNowFilter.js"></script>
+    <script src="/scripts/controllers/sign.js"></script>
+    <script src="/scripts/controllers/timeline.js"></script>
+    <script src="/scripts/controllers/group.js"></script>
+    <script src="/scripts/controllers/userinfo.js"></script>
+    <script src="/scripts/controllers/base.js"></script>
+    <script src="/scripts/services/groupService.js"></script>
+    <script src="/scripts/services/timelineService.js"></script>
+    <script src="/scripts/services/userService.js"></script>
+    <script src="/scripts/services/eventService.js"></script>
+    <script src="/scripts/services/userinfoService.js"></script>
+    <script src="/scripts/services/tlCommentService.js"></script>
+    <script src="/scripts/directives/btn1.js"></script>
+    <script src="/scripts/directives/errorBlock.js"></script>
+    <script src="/scripts/services/communityService.js"></script>
+    <script src="/scripts/directives/fileInput.js"></script>
+    <script src="/scripts/directives/groupAccessV1.js"></script>
+    <script src="/scripts/directives/groupActions.js"></script>
+    <script src="/scripts/directives/messagebox.js"></script>
+    <script src="/scripts/directives/btn2.js"></script>
+    <script src="/scripts/controllers/profile.js"></script>
+    <script src="/scripts/filters/formatTimeFilter.js"></script>
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!--<script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script> -->
+  </body>
+</html>

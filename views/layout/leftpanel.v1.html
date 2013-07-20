@@ -1,0 +1,19 @@
+
+<ul class="nav affix flipInX animate0" data-spy="affix" data-offset-top="50">
+  <li class="active">
+    <a href="/home">今天</a>
+  </li>
+  <li>
+    <a href="/home/past/1">昨天</a>
+  </li>
+  <li>
+    <a href="/home/past/2">前天</a>
+  </li>
+  <li ng-repeat="day in days">
+    <a href="/home/past/{{$index+3}}" class="media-mini text-center text-muted">
+      <strong class="h4">{{day.date}}</strong><br>
+      <small class="label bg-light">{{day.month}}</small>
+    </a>
+  </li>
+
+</ul>

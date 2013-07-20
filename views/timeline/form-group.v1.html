@@ -1,0 +1,28 @@
+<article class="comment-item media" id="comment-form">
+  <a class="pull-left thumb-small avatar">
+    <img ng-src="{{user.avatar}}" class="img-circle"></a>
+  <section class="media-body">
+    
+    <form name="formTimeline" class="m-b-none" ng-controller="TimelineCtrl">
+      <div class="block">
+        <textarea ng-model="timeline.content" class="tl-textarea input-block-level noresize" placeholder="给你的邻居分享你的趣事" ng-click="timelineActions=true;" required></textarea>
+      </div>   
+      <div class="block" ng-show="timelineActions">
+          <file-input title="<i class='icon-plus'></i> 图片" ng-model="timeline.photos" clear="fileclear" multiple="true"></file-input>
+
+          <button btn1 dataloading="正在发布..." ng-model="loading" ng-disabled="formTimeline.$invalid" class="pull-right btn btn-primary" ng-click="publish(timeline)">发布</button>
+          <a class="pull-right link-rt" href="javascript:void(0);" ng-click="timelineActions=false">取消</a>
+        
+      </div>
+      <div class="block" ng-show="progressVisible">
+        <div class="progress progress-mini m-t-mini m-b-none">
+          <div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="{{progress}}%" style="width: {{progress}}%"></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <messagebox title="image_error.title" content="image_error.content"></messagebox>
+
+    </form>
+  </section>
+</article>

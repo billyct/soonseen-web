@@ -1,0 +1,119 @@
+<div class="rightpanel" style="margin-left: 260px;">
+        
+    <ul class="breadcrumbs">
+        <li><a href="dashboard.html"><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+        <li>邻居广播</li>
+    </ul>
+    
+    <div class="pageheader">
+        <div class="pageicon"><span class="iconfa-time"></span></div>
+        <div class="pagetitle">
+            <h5>发现有趣的内容!</h5>
+            <h1>邻居广播</h1>
+        </div>
+    </div><!--pageheader-->
+    
+    <div class="maincontent">
+        <div class="maincontentinner nopadding">
+            
+            <div class="row-fluid">
+                
+                <div class="span9">
+                    
+                    <ul class="timelinelist" ng-controller="TimelineCtrl">
+                        <li>
+                            <div class="tl-icon">
+                                <i class="iconfa-pencil"></i>
+                            </div>
+                            <div class="tl-post">
+                                <div class="tl-texta">
+                                   
+                                    <form name="formTimeline">
+                                    	<div class="control-group">
+                                    		<div class="controls">
+                                    			<textarea ng-model="timeline.content" class="tl-textarea input-block-level noresize" placeholder="给你的邻居分享你的趣事" ng-click="timelineActions=true;"></textarea>
+                                    		</div>
+                                    	</div>
+                                        <div class="control-group" ng-show="timelineActions">
+                                            <div class="controls" ng-controller="GroupCtrl">
+                                                <select ui-select2 multiple class="input-block-level" data-placeholder="分享对象" ng-model="timeline.groups" ng-required="true">
+                                                    <option ng-repeat="g in groups.jed" value="{{g._id}}">{{g.name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    	<div class="control-group" ng-show="timelineActions">
+                                    		<div class="controls">
+		                                    	<div class="fileupload fileupload-new span4" data-provides="fileupload">
+												  <span class="btn btn-file">
+												  	<span class="fileupload-new"><i class="iconfa-camera"></i> +</span>
+												  	<span class="fileupload-exists"><i class="iconfa-camera"></i> +</span>
+												  	<input type="file" />
+												  </span>
+												  <span class="fileupload-preview"></span>
+												  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+												</div>
+
+												<button ng-disabled="formTimeline.$invalid || isUnchanged(timeline)" class="pull-right btn btn-info" ng-click="publish(timeline)">发布</button>
+												<a class="pull-right cancel-rt" href="javascript:void(0);" ng-click="timelineActions=false">取消</a>
+											</div>
+										</div>
+										<div class="clearfix"></div>
+										
+                                    </form>
+                                </div>
+                            </div><!--tl-post-->
+                        </li>
+
+
+                        <li ng-repeat="timeline in timelines">
+                            <div class="tl-icon">
+                                <i class="iconfa-pencil"></i>
+                            </div>
+                            <div class="tl-post">
+                                <div class="tl-author">
+                                    <div class="tl-thumb"><img ng-src="{{timeline.user.avatar}}" alt=""></div>
+                                    <h5><a href="">{{timeline.user.username}}</a> <small>{{timeline.create_at}}</small></h5>
+                                </div>
+                                <div class="tl-body">
+                                    <p>{{timeline.content}}</p>
+                                </div>
+                                <div class="tl-action">
+                                    <a href="" ng-click="thanks($index)">
+                                        <i ng-class="has(timeline.thxed_users, user._id)&&'iconfa-heart'||'iconfa-heart-empty'"></i> 
+                                        感谢
+                                    </a>
+                                    <a href=""><i class="iconfa-comment"></i> 评论</a>
+                                    <a href=""><i class="iconfa-share-alt"></i> 分享</a>
+                                    <a href="" ng-click="delete($index)" ng-show="user._id == timeline.user._id"><i class="iconfa-remove"></i> 删除</a>
+                                </div>
+                                <div class="tl-comments">
+                                    <ul>
+                                        <li ng-repeat="comment in timeline.comments">
+                                            <div class="c-thumb"><img ng-src="{{comment.user.avatar}}" alt=""></div>
+                                            <div class="c-text">
+                                                <h6><a href="">{{comment.user.username}}</a> - {{comment.create_at}}</h6>
+                                                <p>{{comment.content}}</p>
+                                            </div>
+                                        </li>
+                                        <li class="c-input">
+                                            <div class="c-thumb"><img ng-src="{{user.avatar}}" alt=""></div>
+                                            <div class="c-text">
+                                                <input type="text" ui-keypress="{13:'comment(commentContent, $index)'}" ng-model="commentContent" class="span7" placeholder="写你的邻居评论">
+                                            </div>
+                                            
+                                        </li>
+                                    
+                                    </ul>
+                                </div>
+                            </div><!--tl-post-->
+                        </li> 
+                    </ul>
+                    
+                </div><!--span9-->
+                
+            </div><!--row-fluid-->
+            
+        </div><!--maincontentinner-->
+    </div><!--maincontent-->
+    
+</div>

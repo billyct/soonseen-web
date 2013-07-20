@@ -1,0 +1,9 @@
+{
+  "name": "bootstrap-file-input",
+  "version": "0.0.0",
+  "commit": "8316f217b76c86e5eeaddf47570f12bda24c9fde",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grevory/bootstrap-file-input.git"
+  }
+}

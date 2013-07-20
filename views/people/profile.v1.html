@@ -1,0 +1,132 @@
+<nav ng-include="'/views/layout/leftpanel.v1.html'" id="nav" class="nav-primary visible-lg bg-light nav-vertical"></nav>
+<section id="content">
+	<section class="main">
+		<div class="row">
+			<div class="col col-lg-8">
+
+				<section class="panel col col-lg-8 margintop10">
+					<div class="media">
+						<div class="bg-light pull-left text-center media-large thumb-large">
+							<img ng-src="{{user.avatar}}" alt="{{user.username}}" class="img-polaroid"/>
+						</div>
+						<div class="media-body">
+							<h4>{{user.username}}</h4>
+							<h5 ng-repeat="addr in user.addresses"> <i class="icon-map-marker"></i>
+								{{addr.community.community}}
+							</h5>
+							<a href="/edit_profile" class="btn btn-white btn-small">编辑资料</a>
+
+						</div>
+
+					</div>
+
+				</section>
+
+				<section class="panel col col-lg-8">
+					<header class="panel-heading bg bg-info text-center">联系信息</header>
+					<ul class="list-group list-group-flush m-t-n">
+						<li class="list-group-item">
+							<div class="media">
+								<div class="pull-left media-large">
+									<div class="h4 m-t-mini"> <strong><i class="icon-phone"></i> 电话</strong>
+									</div>
+								</div>
+								<div class="media-body">
+									<p>{{user.contact_information.phone}}</p>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<div class="media">
+								<div class="pull-left media-large">
+									<div class="h4 m-t-mini"> <strong><i class="icon-envelope"></i> Email</strong>
+									</div>
+								</div>
+								<div class="media-body">
+									<p>{{user.contact_information.email}}</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+
+				</section>
+
+				<section class="panel col col-lg-8">
+					<header class="panel-heading bg bg-primary text-center">关于</header>
+					<section class="panel-content scrollbar scroll-y">
+						<article>
+							<div class="media">
+								<div class="pull-left media-large">
+									<div class="h4 m-t-mini"> <strong><i class="icon-time"></i> 入驻时间</strong>
+									</div>
+								</div>
+								<div class="media-body">
+									<p>{{user.create_at | formatTimeFilter}}</p>
+								</div>
+							</div>
+							<div class="media">
+								<div class="pull-left media-large">
+									<div class="h4 m-t-mini"> <strong><i class="icon-building"></i> 地址</strong>
+									</div>
+									<small>
+										<div class="hidden-sm m-t text-center ">
+											<b class="badge bg-info">{{user.addresses.length}}</b>
+										</div>
+									</small>
+								</div>
+								
+								<div class="media-body">
+									<ul class="list-group">
+										<li class="list-group-item" ng-repeat="addr in user.addresses">{{addr.address}}</li>
+									</ul>
+								</div>
+							</div>
+						</article>
+					</section>
+
+				</section>
+
+				<section class="panel col col-lg-8">
+					<header class="panel-heading bg bg-success text-center">奇怪的数字</header>
+
+					<ul class="list-group list-group-flush m-t-n">
+						<li class="list-group-item">
+							<div class="media">
+								<div class="pull-left media-large">
+									<div class="h4 m-t-mini"> <strong><i class="icon-bullhorn"></i> 广播</strong>
+									</div>
+								</div>
+								<div class="media-body">
+									<p>{{activity_stats.post}}</p>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<div class="media">
+								<div class="pull-left media-large">
+									<div class="h4 m-t-mini"> <strong><i class="icon-reply"></i> 评论</strong>
+									</div>
+								</div>
+								<div class="media-body">
+									<p>{{activity_stats.reply}}</p>
+								</div>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<div class="media">
+								<div class="pull-left media-large">
+									<div class="h4 m-t-mini"> <strong><i class="icon-camera"></i> 照片</strong>
+									</div>
+								</div>
+								<div class="media-body">
+									<p>{{activity_stats.photo}}</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+
+				</section>
+			</div>
+		</div>
+	</section>
+</section>

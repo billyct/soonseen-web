@@ -1,0 +1,25 @@
+<div class="leftpanel">
+    <div class="leftmenu">        
+        <ul class="nav nav-tabs nav-stacked">
+            <li class="dropdown"><a href=""><span class="iconfa-book"></span>我的圈子</a>
+            	<ul class="ss-ul" style="display: block" ng-controller="GroupController">
+                	<li ng-repeat="group in groups.jed"><a href="/groups/{{group._id}}">{{group.name}}</a></li>
+                    <li><a href="/groups"><span class="iconfa-plus"></span>创建或者加入新圈子</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown"><a href=""><span class="iconfa-book"></span>时光</a>
+                <ul style="display: block">
+                    <li><a class="menu" href="#">昨天</a></li>
+                    <li><a class="menu" href="#">2013年6月13日</a></li>
+                    <li><a class="menu" href="#">2013年6月12日</a></li>
+                    <li><a class="menu" href="#">2013年6月11日</a></li>
+                    <li><a class="menu" href="#">2013年6月10日</a></li>
+                    <li><a class="menu" href="#">2013年6月9日</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div><!--leftmenu-->
+
+</div>

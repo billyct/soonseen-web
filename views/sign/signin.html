@@ -1,0 +1,44 @@
+
+<section id="content">
+    <div class="row">
+      <div class="col col-lg-4 col-offset-4 m-t-large">
+        <section class="panel">
+          <header class="panel-heading text-center">欢迎 Welcome</header>
+          <form name="formSignin" class="padder">
+
+            <div class="block">
+                <error-block error="error"></error-block>
+            </div>
+            <div class="block">
+                <label class="control-label"> <strong>Email</strong>
+                </label>
+                <input type="email" placeholder="登录邮箱" ng-model="user.email" required />
+            </div>
+            <div class="block">
+                <label class="control-label"> <strong>密码</strong>
+                </label>
+                <input type="password" id="inputPassword" placeholder="输入密码" ng-model="user.password" required />
+            </div>
+            <br />
+            <a href="#" class="pull-right m-t-mini">
+              <small>忘记密码?</small>
+            </a>
+             <button btn1 type="submit" id="btn-signin" ng-click="signin(user)" ng-model="loading" ng-disabled="formSignin.$invalid" dataloading="正在登录..." class="btn btn-info">登录</button>
+            <div class="line line-dashed"></div>
+            <a href="#" class="btn btn-weibo btn-block m-b-small"> <i class="icon-weibo pull-left"></i>
+              微博登录
+            </a>
+            <a href="#" class="btn btn-renren btn-block">
+              <i class="icon-renren pull-left"></i>
+              人人网登录
+            </a>
+            <div class="line line-dashed"></div>
+            <p class="text-muted text-center">
+              <small>没有账号?</small>
+            </p>
+            <a href="signup" class="btn btn-white btn-block">注册一个账号</a>
+          </form>
+        </section>
+      </div>
+    </div>
+  </section>

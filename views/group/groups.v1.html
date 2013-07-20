@@ -1,0 +1,80 @@
+<nav ng-include="'/views/layout/leftpanel.v1.html'" id="nav" class="nav-primary visible-lg bg-light nav-vertical"></nav>
+<section id="content" class="fadeIn animate0">
+  <main class="main">
+    <div class="padder clearfix">
+      <h4> <i class="icon-magic"></i>
+        加入你喜欢的圈子
+      </h4>
+    </div>
+    <div class="row">
+      <div class="col col-lg-12" ng-controller="GroupQueryJCtrl" >
+        <div class="row">
+          <div class="col col-sm-12">
+            <div class="btn-group" data-toggle="buttons-radio">
+                <a href="#" class="btn btn-white" ng-click="groupsList = groups">所有圈子</a>
+                <a href="#" class="btn btn-white" ng-click="groupsList = groupsJ">我的圈子</a>
+
+            </div>
+            <button class="btn btn-success" href="#formGroupModal" role="button" data-toggle="modal">创建新圈子</button>
+          </div>
+
+        </div>
+        <div class="line"></div>
+        <div class="row">
+          <div class="col col-lg-2" ng-repeat="g in groupsList">
+            <section class="panel text-center">
+              <a class="btn btn-circle btn-info btn-large" href="/groups/{{g._id}}"> 
+                <i class="icon-group"></i>
+                <group-access-v1 access="g.access"></group-access-v1>
+              </a>
+              <div class="h4 text-nowrap" title="{{g.name}}">{{g.name}}</div>
+              <div class="line m-l m-r"></div>
+              <h4 class="text-success"> <i class="icon-user"></i><strong>{{g.users.length}}</strong>
+              </h4>
+            </section>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+</section>
+
+
+
+<div id="formGroupModal" class="modal fade">
+  <form name="formGroup" class="m-b-none" ng-controller="GroupCtrl" ng-init="group.access=1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icon-remove"></i>
+          </button>
+          <h4 class="modal-title">创建新的圈子</h4>
+        </div>        
+        <div class="modal-body">
+          <div class="block">
+              <error-block error="error"></error-block>
+          </div>       
+          <div class="block">
+            <label class="control-label">名称</label>
+            <input type="text" ng-model="group.name" required>
+          </div>
+          <div class="block">
+            <label class="control-label">描述</label>
+            <textarea ng-model="group.description" rows="5" required></textarea>
+          </div>
+          <div class="block">
+            <label class="control-label">权限</label>
+            <input type="radio" ng-model="group.access" value="1" checked="checked"/> 公开 &nbsp; &nbsp;
+            <input type="radio" ng-model="group.access" value="2" /> 私密 &nbsp; &nbsp;
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button btn1 class="btn btn-primary" ng-click="create(group)" ng-model="loading" ng-disabled="formGroup.$invalid" dataloading="创建中...">创建</button>
+          <a href="#" class="cancel-lt" aria-hidden="true" data-dismiss="modal">取消</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

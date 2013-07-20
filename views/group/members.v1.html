@@ -1,0 +1,76 @@
+<nav ng-include="'/views/layout/leftpanel.v1.html'" id="nav" class="nav-primary visible-lg bg-light nav-vertical"></nav>
+
+<section id="content" ng-controller="GroupQueryJCtrl">
+	<main class="main">
+		<div class="row">
+			<ng-include src="'/views/group/toolbar.v1.html'"></ng-include>
+
+			<div class="col col-lg-8">
+
+				<div class="row">
+					<div class="col col-sm-8">
+						<a href="/groups/{{group._id}}" class="h4">@{{group.name}} 邻居广播 </a>
+						<a href="/groups/{{group._id}}/members" class="btn btn-white active"><i class="icon-user"></i>{{group.users.length}}个成员</a>
+					</div>
+					<div class="col col-sm-4 ">
+						<a class="btn btn-primary pull-right" ng-controller="GroupCtrl" ng-click="join(group._id)" ng-show="!has(group.users, user._id) && group.access == 1">加入</a>
+						<div class="btn-group pull-right" ng-show="has(group.users, user._id) || group.user == user._id" ng-controller="GroupCtrl">
+							<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								操作
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="/groups/{{group._id}}/members" ng-show="group.user == user._id">邀请邻居</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" ng-click="join(group._id)" ng-show="has(group.users, user._id) && group.user != user._id">取消加入</a>
+								</li>
+								<li class="divider " ng-show="group.user == user._id"></li>
+								<li>
+									<a href="javascript:void(0);" ng-show="group.user == user._id" ng-click="delete(group._id)">删除圈子</a>
+								</li>
+							</ul>
+							<messagebox title="group_error.title" content="group_error.content"></messagebox>
+						</div>
+					</div>
+				</div>
+
+				<div class="line line-dashed"></div>
+
+				<section class="panel" ng-controller="GroupCtrl" >
+					<header class="panel-heading">
+						<div class="text-small block" ng-controller="GroupMemberCtrl">
+							<input type="text" class="input-small" placeholder="搜索您的邻居" ng-model="neighbor_selected" typeahead="neighbor as neighbor.username for neighbor in search($viewValue, group._id)">
+						</div>
+					</header>
+					<ul class="list-group list-group-flush m-t-n">
+						<li class="list-group-item" ng-class-odd="bg" ng-repeat="m in members">
+							<div class="media">
+								<span class="pull-left thumb-small">
+									<img ng-src="{{m.avatar}}" alt="{{m.username}}" class="img-rounded"></span>
+								<div class="pull-right m-t-small" ng-show="group.user == user._id">
+									<a href="#" class="btn btn-soonseen btn-mini dropdown-toggle" data-toggle="dropdown"> 
+										<i class="icon-caret-down"></i>
+									</a>
+									<ul class="dropdown-menu" style="margin-top:-15px;">
+										<li>
+											<a href="javascript:void(0);" ng-click="kick(group._id, m._id)">踢出圈子</a>
+										</li>
+									</ul>
+								</div>
+								<div class="media-body">
+									<div>
+										<a href="#" class="h5">{{m.username}}</a>
+									</div>
+									<small class="text-muted">{{m.addresses[0].address}}</small>
+								</div>
+							</div>
+						</li>
+						
+					</ul>
+				</section>
+			</div>
+		</div>
+	</main>
+</section>

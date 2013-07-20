@@ -1,0 +1,32 @@
+<nav ng-include="'/views/layout/leftpanel.v1.html'" id="nav" class="nav-primary visible-lg bg-light nav-vertical"></nav>
+
+<section id="content" ng-controller="GroupQueryJCtrl">
+  <main class="main">
+    <div class="row">
+      <ng-include src="'/views/group/toolbar.v1.html'"></ng-include>
+      
+      <div class="col col-lg-8">
+        <!-- .comment-list -->
+        <!-- comment form -->
+
+        <h3>邻居广播</h3>
+
+        <div class="line"></div>
+
+
+        <section class="comment-list block">
+          <ng-include src="'/views/timeline/form.v1.html'"></ng-include>
+
+          <div class="line"></div>
+
+          <!-- timeline-item -->
+          <ng-include src="'/views/timeline/list.v1.html'"></ng-include>
+
+        </section>
+        
+        
+
+        <!-- / .comment-list --> </div>
+    </div>
+  </main>
+</section>

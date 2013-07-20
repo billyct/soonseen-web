@@ -1,0 +1,76 @@
+<nav ng-include="'/views/layout/leftpanel.v1.html'" id="nav" class="nav-primary visible-lg bg-light nav-vertical"></nav>
+<section id="content">
+	<section class="main">
+		<div class="row">
+			<div class="col col-lg-12">
+				<section class="panel margintop10">
+					<form name="formProfile" class="form-horizontal" ng-controller="ProfileCtrl">
+						<div class="row">
+							<div class="col col-lg-6">
+								<div class="row">
+									<label class="col col-lg-3 control-label">用户名</label>
+									<div class="col col-lg-9">
+										<h4>{{profile.username}}</h4>
+									</div>
+								</div>
+								<div class="row">
+									<label class="col col-lg-3 control-label">头像</label>
+									<div class="col col-lg-9 media">
+										<div class="bg-light pull-left text-center media-large thumb-large">
+											<img ng-src="{{user.avatar}}" alt="{{profile.username}}"/>
+										</div>
+										<div class="media-body">
+											<file-input title="新头像" ng-model="profile.avatars" clear="fileclear"></file-input>
+											<br>
+											<button class="btn btn-small btn-default" ng-click="delete_avatar()">删除</button>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<label class="col col-lg-3 control-label">Email</label>
+									<div class="col col-lg-9">
+										<input type="email" name="email" placeholder="test@example.com" ng-model="profile.contact_information.email">
+									</div>
+								</div>
+
+								<div class="row">
+									<label class="col col-lg-3 control-label">电话</label>
+									<div class="col col-lg-9">
+										<input type="text" name="phone" placeholder="12345678901" ng-model="profile.contact_information.phone">
+									</div>
+								</div>
+								<div class="row">
+									<label class="col col-lg-3 control-label">公开</label>
+									<div class="col col-lg-9">
+										<div class="btn-group m-t-n-mini m-r-n-mini" data-toggle="buttons-radio"> 
+											<label class="btn btn-small btn-white btn-on" ng-class="profile.access&&'active'||''"> 
+												<input type="radio" name="access" ng-model="profile.access" value="{{true}}"> 是 
+											</label> 
+											<label class="btn btn-small btn-white" ng-class="!profile.access&&'active'||''"> 
+												<input type="radio" name="access" ng-model="profile.access" value="{{false}}"> 否 
+											</label> 
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<label class="col col-lg-3 control-label">个性签名</label>
+									<div class="col col-lg-9">
+										<textarea placeholder="个性签名" ng-model="profile.signature" rows="5"></textarea>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col col-lg-9 col-offset-3">
+										<a href="/profile" class="btn btn-white">取消</a>
+										<button type="submit" class="btn btn-primary" ng-click="save(profile)" btn1 dataloading="正在保存..." ng-model="loading">保存</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<messagebox title="image_error.title" content="image_error.content"></messagebox>
+					</form>
+				</section>
+			</div>
+		</div>
+	</section>
+</section>

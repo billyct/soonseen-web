@@ -1,0 +1,71 @@
+<div ng-repeat="timeline in timelines" ng-controller="TimelineCtrl">
+  <article class="comment-item media arrow-left" >
+    <a class="pull-left thumb-small">
+      <img ng-src="{{timeline.user.avatar}}" class="img-circle"></a>
+    <section class="media-body panel">
+      <header class="panel-heading clearfix">
+        <a href="#">{{timeline.user.username}}</a>
+        <a href="#" ng-repeat="g in timeline.groups">
+          <label class="label bg-info m-l-mini">{{g.name}}</label>
+        </a>
+        <span class="text-muted m-l-small pull-right"> <i class="icon-time"></i>
+          {{timeline.create_at | fromNowFilter}}
+        </span>
+      </header>
+      <div>
+        <a ng-repeat="p in timeline.photos" href="{{p.path}}" target="_blank">
+          <img ng-src="{{p.path_thumb}}" class="img-polaroid" alt="{{p._id}}" />
+        </a>
+      </div>
+      <div>{{timeline.content}}</div>
+      <div class="comment-action m-t-small">
+        <a href="#" ng-click="thanks($index)" class="btn btn-white btn-mini" ng-class="has(timeline.thxed_users, user._id)&&'active'||''"> 
+         
+          <i class="icon-heart-empty text-muted text"></i>
+          <i class="icon-heart text-danger text-active"></i>
+          感谢
+        </a>
+        <a href="#comment-form" class="btn btn-white btn-mini">
+          <i class="icon-mail-reply text-muted"></i>
+          分享
+        </a>
+        <a href="#" ng-click="delete($index)" class="btn btn-white btn-mini" ng-show="user._id == timeline.user._id">
+          <i class="icon-remove text-muted"></i>
+          删除
+        </a>
+      </div>
+    </section>
+  </article>
+  <!-- timeline comments list -->
+  <article class="comment-item comment-reply media arrow-left" ng-repeat="comment in timeline.comments">
+    <a class="pull-left thumb-small avatar">
+      <img ng-src="{{comment.user.avatar}}" class="img-circle" />
+    </a>
+    <section class="media-body panel text-small">
+      <a href="#">{{comment.user.username}}</a>
+      说：
+                {{comment.content}}
+      <span class="text-muted m-l-small pull-right">
+        <i class="icon-time"></i>
+        {{ comment.create_at | fromNowFilter }}
+      </span>
+    </section>
+  </article>
+
+  <article class="comment-item comment-reply media arrow-left">
+    <a class="pull-left thumb-small avatar">
+      <img ng-src="{{user.avatar}}" class="img-circle" />
+    </a>
+    <section class="media-body panel text-small">
+        <input type="text" ui-keypress="{13:'comment(content, $index)'}" ng-model="content" placeholder="评论一下！"/>
+    </section>
+
+  </article>
+
+  <div class="line"></div>
+
+</div>
+
+<div class="block" ng-controller="TimelineCtrl">
+  <a href="#" btn2 class="btn btn-white btn-block" ng-click="more(page+1)" page="{{page}}" ng-disabled="nodata">加载更多</a>
+</div>

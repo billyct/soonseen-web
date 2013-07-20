@@ -1,0 +1,92 @@
+<!-- header -->
+<header id="header" class="navbar navbar-sm">
+
+    <ul class="nav navbar-nav navbar-avatar pull-right" ng-show="user">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="hidden-sm-only">{{user.username}}</span>
+                <span class="thumb-small avatar inline" >
+                    <img ng-src="{{user.avatar}}" alt="{{user.username}}" class="img-circle">
+                </span>
+                <b class="caret hidden-sm-only"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="/setting">设置</a>
+                </li>
+                <li>
+                    <a href="/profile">个人主页</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="badge bg-danger pull-right">3</span>
+                        消息
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="/help">帮助</a>
+                </li>
+                <li>
+                    <a ng-controller="SignCtrl" ng-click="signout()">退出</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <a class="navbar-brand" href="/">宿舍</a>
+    <button type="button" class="btn btn-link pull-left nav-toggle hidden-lg" data-toggle="class:show" data-target="#nav">
+      <i class="icon-reorder icon-xlarge text-default"></i>
+    </button>
+    <ul class="nav navbar-nav hidden-sm" ng-show="user">
+        <li ng-show="user">
+            <div class="m-t m-b-small">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-comment-alt icon-xlarge text-default"></i> <b class="badge badge-notes bg-danger">3</b>
+                </a>
+                <section class="dropdown-menu m-l-small m-t-mini">
+                    <section class="panel panel-large arrow-top">
+                        <header class="panel-heading bg-white">
+                            <span class="h5"> <strong>You have 3 notifications</strong>
+                            </span>
+                        </header>
+                        <div class="list-group list-group-flush m-t-n">
+                            <a href="#" class="media list-group-item">
+                                <span class="pull-left thumb-small">
+                                    <img ng-src="{{user.avatar}}" alt="John said" class="img-circle"></span>
+                                <span class="media-body block m-b-none">
+                                    Bootstrap 3.0 is comming
+                                    <br>
+                                    <small class="text-muted">3 minutes ago</small>
+                                </span>
+                            </a>
+                            <a href="#" class="media list-group-item">
+                                <span class="pull-left thumb-small"> <i class="icon-share icon-2x text-default"></i>
+                                </span>
+                                <span class="media-body block m-b-none">
+                                    Jone shared a file to you
+                                    <br>
+                                    <small class="text-muted">2 minutes ago</small>
+                                </span>
+                            </a>
+                            <a href="#" class="media list-group-item">
+                                <span class="media-body block m-b-none">
+                                    Admin upgrade the app to ver 2.0
+                                    <br>
+                                    <small class="text-muted">1 minute ago</small>
+                                </span>
+                            </a>
+                        </div>
+                        <footer class="panel-footer text-small">
+                            <a href="#" class="pull-right">
+                                <i class="icon-cog"></i>
+                            </a>
+                            <a href="#">See all the notifications</a>
+                        </footer>
+                    </section>
+                </section>
+            </div>
+        </li>
+
+
+    </ul>
+</header>
+<!-- / header -->

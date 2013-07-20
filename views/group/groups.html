@@ -1,0 +1,102 @@
+<div class="rightpanel" style="margin-left: 260px;">
+    <ul class="breadcrumbs">
+        <li>
+            <a href="dashboard.html"> <i class="iconfa-home"></i>
+            </a>
+            <span class="separator"></span>
+        </li>
+        <li>圈子</li>
+    </ul>
+
+    <div class="pageheader">
+        <div class="pageicon">
+            <span class="iconfa-group"></span>
+        </div>
+        <div class="pagetitle">
+            <h5>加入你喜欢的圈子!</h5>
+            <h1>圈子</h1>
+        </div>
+    </div>
+    <!--pageheader-->
+
+    <div class="maincontent">
+        <div class="maincontentinner">
+            <div class="row-fluid">
+                <div class="span7 group-btns">
+                    <button class="btn btn-large" ng-click="groups.list=groups.jced">所有圈子</button>
+                    <button class="btn btn-large" ng-click="groups.list=groups.ced">我的圈子</button>
+                    <button class="btn btn-success btn-large pull-right" href="#formGroupModal" role="button" data-toggle="modal">创建新圈子</button>
+                </div>
+
+                <div class="span7">
+                    <ul class="entrylist">
+                        <li ng-repeat="group in groups.list">
+                            <div class="entry_wrap">
+                                <div class="entry_img width10">
+                                    <img alt="" src="images/icons/add-photo.png"></div>
+                                <div class="entry_content">
+                                    <h4>
+                                        <a href="/groups/{{group._id}}">{{group.name}}</a>
+                                        (官方)
+                                    </h4>
+                                    <p>{{group.description}}</p>
+
+                                    <span class="count">
+                                        <span> <i class="iconfa-user"></i>
+                                            1
+                                        </span>
+                                        <span>
+                                            <i class="iconfa-comment"></i>
+                                            1
+                                        </span>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                
+            </div>
+
+        </div>
+        <!--maincontentinner--> </div>
+    <!--maincontent-->
+</div>
+
+
+<div id="formGroupModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="widgetbox box-primary">
+        <h4 class="widgettitle">创建新的圈子<a class="close" aria-hidden="true" data-dismiss="modal">×</a></h4>
+        <div class="widgetcontent nopadding">
+            <form name="formGroup" class="stdform stdform2" method="post" ng-controller="GroupController" ng-init="group.access=1">
+                <div class="form-group-err-block" ng-hide="errorBlock.closed" ng-init="errorBlock.closed=true">
+                    <div class="alert alert-error alert-block">
+                        <a class="close" ng-click="closeErrorBlock()">&times;</a>
+                        <strong>错误：</strong>{{errorBlock.error}}
+                    </div>
+                </div>
+                <p>
+                    <label>名称</label>
+                    <span class="field"><input type="text" ng-model="group.name" class="input-block-level" required></span>
+                </p>
+                <p>
+                    <label>描述</label>
+                    <span class="field"><textarea ng-model="group.description" class="input-block-level" required></textarea></span>
+                </p>
+                <p>
+                    <label>权限</label>
+                    <span class="field">
+                        <input type="radio" ng-model="group.access" value="1" checked="checked"/> 公开 &nbsp; &nbsp;
+                        <input type="radio" ng-model="group.access" value="2" /> 私密 &nbsp; &nbsp;
+                    </span>
+                </p>
+                <p class="stdformbutton">
+                    <button class="btn btn-primary" ng-click="create(group)" ng-disabled="formGroup.$invalid || isUnchanged(group)">创建</button>
+                    <a href="#" class="cancel-lt" aria-hidden="true" data-dismiss="modal">取消</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

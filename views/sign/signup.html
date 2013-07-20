@@ -1,0 +1,52 @@
+<section id="content">
+    <div class="row">
+      <div class="col col-lg-4 col-offset-4 m-t-large">
+        <section class="panel">
+          <header class="panel-heading text-center">注册</header>
+          <form name="formSignup" class="padder">
+            <div class="block">
+                <error-block error="error"></error-block>
+            </div>
+            <div class="block">
+                <label class="control-label">用户名</label>
+                <input type="text" placeholder="例如:billyct" ng-model="user.username" required>
+            </div>
+            <div class="block">
+                <label class="control-label"> <strong>您的邮箱</strong>
+                </label>
+                <input type="email" placeholder="例如:billyct@soonseen.in" ng-model="user.email" required>
+            </div>
+            <div class="block">
+                <label class="control-label">
+                  <strong>密码</strong>
+                </label>
+                <input type="password" id="inputPassword" placeholder="密码" ng-model="user.password" required>
+            </div>
+            <br />
+            <button btn1 type="submit" id="btn-signup" class="btn btn-info" ng-click="signup(user)" ng-model="loading" ng-disabled="formSignup.$invalid" dataloading="正在注册...">
+                    注册
+            </button>
+            <div class="line line-dashed"></div>
+            <div class="row">
+              <div class="col col-sm-6 text-center">
+                <a href="#" class="btn btn-weibo btn-circle btn-small"> <i class="icon-weibo"></i>
+                  使用新浪微博注册
+                </a>
+              </div>
+              <div class="col col-sm-6 text-center">
+                <a href="#" class="btn btn-renren btn-circle btn-small">
+                  <i class="icon-renren"></i>
+                  使用人人网注册
+                </a>
+              </div>
+            </div>
+            <div class="line line-dashed"></div>
+            <p class="text-muted text-center">
+              <small>已经有了账号?</small>
+            </p>
+            <a href="/signin" class="btn btn-white btn-block">登录</a>
+          </form>
+        </section>
+      </div>
+    </div>
+  </section>
