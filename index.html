@@ -33,7 +33,8 @@
     <!-- Add your site or application content here -->
 
     
-    <ng-include src="'/views/layout/header.html'"></ng-include>
+    
+    <header id="header" class="navbar navbar-sm" ng-include="'/views/layout/header.html'"></header>
 
     <ng-view>
     </ng-view>
@@ -96,6 +97,7 @@
     <script src="/scripts/directives/btn2.js"></script>
     <script src="/scripts/controllers/profile.js"></script>
     <script src="/scripts/filters/formatTimeFilter.js"></script>
+    <script src="/scripts/directives/mobileBtn.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
