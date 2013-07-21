@@ -35,18 +35,7 @@ angular.module('soonseen3App')
 
 
 
-    $scope.days = new Array(7);
-    var today_unix = moment().unix();
-
-    for (var i = 0; i < $scope.days.length; i++) {
-
-      var past = moment.unix(today_unix-86400*(i+3));
-
-      $scope.days[i] = {
-        month : past.format('MMM'),
-        date : past.date(),
-      };
-    }
+    
 
 
 
