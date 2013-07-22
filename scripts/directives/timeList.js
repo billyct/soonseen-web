@@ -3,7 +3,7 @@
 angular.module('soonseen3App')
   .directive('timeList', function () {
     return {
-      template: '<ul class="nav affix flipInX animate0 scrollbar scroll-y" style="height:100%;" data-spy="affix" data-offset-top="50"> '+
+      template: '<ul class="nav affix scrollbar scroll-y" style="height:100%;" data-spy="affix" data-offset-top="50"> '+
 	      			'<li class="active"><a href="/home">今天</a></li>'+
 					'<li><a href="/home/past/1">昨天</a></li>'+
 					'<li><a href="/home/past/2">前天</a></li>'+

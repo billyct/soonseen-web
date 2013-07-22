@@ -152,8 +152,9 @@ angular.module('soonseen3App')
 			$scope.members = groupService.members({id: groupId, token: $rootScope.user.token});
 		}
 	})
-	.controller('GroupMemberCtrl', function($scope, $rootScope, $routeParams, $http, groupService) {
+	.controller('GroupMemberCtrl', function($scope, $rootScope, $routeParams, $http, groupService, api_url) {
 		$scope.search = function(keyword, groupId) {
+			console.log('abc');
 
   			/*
   			 *原来是想使用
