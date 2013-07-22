@@ -117,7 +117,13 @@ angular.module('soonseen3App')
 		if (!_.isUndefined(groupId)) {
 			$scope.group = groupService.get({id:groupId,token: $rootScope.user.token}, function(result) {
 				if (result.error) {$location.path('/home')};
+				$scope.actions = {
+					joined : _.contains(result.users, $rootScope.user._id),
+					created : result.user == $rootScope.user._id,
+					public : result.access == 1
+				};
 			});
+
 			$scope.timelines = timelineService.group({id:groupId,token: $rootScope.user.token});
 			
 		}
@@ -148,6 +154,11 @@ angular.module('soonseen3App')
 		if (!_.isUndefined(groupId)) {
 			$scope.group = groupService.get({id:groupId,token: $rootScope.user.token}, function(result) {
 				if (result.error) {$location.path('/home')};
+				$scope.actions = {
+					joined : _.contains(result.users, $rootScope.user._id),
+					created : result.user == $rootScope.user._id,
+					public : result.access == 1
+				};
 			});
 			$scope.members = groupService.members({id: groupId, token: $rootScope.user.token});
 		}

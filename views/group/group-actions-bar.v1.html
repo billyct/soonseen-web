@@ -1,0 +1,27 @@
+<div class="col col-sm-8">
+	<a href="/groups/{{group._id}}" class="h4">@{{group.name}} 邻居广播 </a>
+	<a href="/groups/{{group._id}}/members" class="btn btn-white"><i class="icon-user"></i>{{group.users.length}}个成员</a>
+</div>
+
+<div class="col col-sm-4">
+	<a class="btn btn-primary pull-right" ng-controller="GroupCtrl" ng-click="join(group._id)" ng-show="!actions.joined && actions.public">加入</a>
+	<div class="btn-group pull-right" ng-show="actions.joined || actions.created" ng-controller="GroupCtrl">
+		<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+			操作
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<li>
+				<a href="/groups/{{group._id}}/members" ng-show="actions.created">邀请邻居</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);" ng-click="join(group._id)" ng-show="actions.joined && !actions.created">取消加入</a>
+			</li>
+			<li class="divider " ng-show="actions.created"></li>
+			<li>
+				<a href="javascript:void(0);" ng-show="actions.created" ng-click="delete(group._id)">删除圈子</a>
+			</li>
+		</ul>
+		<messagebox title="group_error.title" content="group_error.content"></messagebox>
+	</div>
+</div>
