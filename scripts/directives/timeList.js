@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('soonseen3App')
-  .directive('timeList', function () {
+  .directive('timeList', function ($location) {
     return {
       template: '<ul class="nav affix scrollbar scroll-y" style="height:100%;" data-spy="affix" data-offset-top="50"> '+
-	      			'<li class="active"><a href="/home">今天</a></li>'+
-					'<li><a href="/home/past/1">昨天</a></li>'+
-					'<li><a href="/home/past/2">前天</a></li>'+
-	      			'<li ng-repeat="day in days">'+
+	      			'<li ng-class="getClass(\'/home\')"><a href="/home">今天</a></li>'+
+					'<li ng-class="getClass(\'/home/past/1\')"><a href="/home/past/1">昨天</a></li>'+
+					'<li ng-class="getClass(\'/home/past/2\')"><a href="/home/past/2">前天</a></li>'+
+	      			'<li ng-class="getClass(\'/home/past/{{$index+3}}\')" ng-repeat="day in days">'+
 					    '<a href="/home/past/{{$index+3}}" class="media-mini text-muted">'+
 					      '<strong class="h4">{{day.date}}</strong><br>'+
 					      '<small class="label bg-light">{{day.month}}</small>'+
@@ -30,6 +30,13 @@ angular.module('soonseen3App')
 	      };
 	    }
 
+	    scope.getClass = function(path) {
+		    if ($location.path() == path) {
+		      return "active timelist-active"
+		    } else {
+		      return ""
+		    }
+		};
       }
     };
   });

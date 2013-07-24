@@ -154,3 +154,9 @@
 #nav {
 	position: fixed;
 }
+
+
+.timelist-active {
+	/*background: url(../images/icons/arrow-right-timelist-2.png) no-repeat right center;*/
+	border-bottom: dashed 1px #22BAA0;
+}
